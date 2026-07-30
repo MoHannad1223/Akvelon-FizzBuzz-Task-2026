@@ -9,15 +9,20 @@ namespace FizzBuzzTask.Models
 
     public class FizzBuzzDetector
     {
-        private StringBuilder output=new StringBuilder();
-        private StringBuilder currentWord=new StringBuilder();
+        private StringBuilder output=new();
+        private StringBuilder currentWord=new();
 
-        private int wordIndex=0;
-        private int count=0;
+        private int wordIndex;
+        private int count;
 
 
         public Result GetOverlappings(string input)
         {
+            output.Clear();
+            currentWord.Clear();
+            wordIndex = 0;
+            count = 0;//عشان كل  Test  يبقى مستقل.
+            //reset state for each method call
             if (input == null)
                 throw new ArgumentNullException(nameof(input));
 
